@@ -6,3 +6,5 @@ langchain-text-splitters
 langchain-google-genai
 langchain-chroma
 chromadb
+pypdf
+python-docx
