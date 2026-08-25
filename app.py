@@ -434,11 +434,32 @@ if uploaded_file is not None:
 
         except Exception as e:
 
-            st.error(
-                "Unable to process the uploaded document."
-            )
+            error_message = str(e)
 
-            st.exception(e)
+            if (
+                "RESOURCE_EXHAUSTED" in error_message
+                or "429" in error_message
+                or "quota" in error_message.lower()
+            ):
+
+                st.warning(
+                    """
+                    ⚠️ **Gemini API quota reached**
+
+                    The current Gemini API quota has been
+                    exhausted.
+
+                    Please try again after the quota resets.
+                    """
+                )
+
+            else:
+
+                st.error(
+                    "Unable to process the uploaded document."
+                )
+
+                st.exception(e)
 
             st.stop()
 
@@ -568,12 +589,43 @@ if uploaded_file is not None:
 
                 except Exception as e:
 
-                    st.error(
-                        "An error occurred while "
-                        "generating the answer."
-                    )
+                    error_message = str(e)
 
-                    st.exception(e)
+
+                    # ----------------------------------------
+                    # Gemini API quota error
+                    # ----------------------------------------
+
+                    if (
+                        "RESOURCE_EXHAUSTED" in error_message
+                        or "429" in error_message
+                        or "quota" in error_message.lower()
+                    ):
+
+                        st.warning(
+                            """
+                            ⚠️ **Gemini API quota reached**
+
+                            The current Gemini API quota has been
+                            exhausted.
+
+                            Please try again after the quota resets.
+                            """
+                        )
+
+
+                    # ----------------------------------------
+                    # Other errors
+                    # ----------------------------------------
+
+                    else:
+
+                        st.error(
+                            "An error occurred while generating "
+                            "the answer."
+                        )
+
+                        st.exception(e)
 
 
 else:
@@ -597,4 +649,10 @@ st.divider()
 st.caption(
     "Built using Python, LangChain, Google Gemini, "
     "ChromaDB and Streamlit."
+)
+
+st.caption(
+    "ℹ️ This application uses the Google Gemini API. "
+    "Usage is subject to the API provider's current "
+    "quotas and limits."
 )
