@@ -49,7 +49,7 @@ st.markdown(
     .friday-snow {
         position: fixed;
         inset: 0;
-        width: 9vw;
+        width: 90vw;
         height: 9vh;
         pointer-events: none;
         overflow: hidden;
