@@ -34,6 +34,82 @@ st.set_page_config(
 
 
 # ============================================================
+# FALLING SNOWFLAKES + LIGHT STYLING
+# ============================================================
+
+st.markdown(
+    """
+    <style>
+    /* Keep the normal Streamlit layout untouched. The snow is a
+       transparent overlay, so the app remains visible and clickable. */
+    .stApp {
+        background: #F7F8FA;
+    }
+
+    .friday-snow {
+        position: fixed;
+        inset: 0;
+        width: 90vw;
+        height: 90vh;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 9999;
+    }
+
+    .friday-snow span {
+        position: absolute;
+        top: -5px;
+        color: #B9DDF7;
+        opacity: 1.55;
+        font-size: 70px;
+        line-height: 1;
+        user-select: none;
+        animation-name: rag-snow-fall;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        will-change: transform;
+    }
+
+    @keyframes rag-snow-fall {
+        0% {
+            transform: translate3d(0, -5vh, 0) rotate(0deg);
+        }
+        100% {
+            transform: translate3d(45px, 110vh, 0) rotate(360deg);
+        }
+    }
+
+    .friday-snow span:nth-child(1)  { left: 4%;  animation-duration: 12s; animation-delay: -3s; }
+    .friday-snow span:nth-child(2)  { left: 11%; animation-duration: 16s; animation-delay: -9s; font-size: 14px; }
+    .friday-snow span:nth-child(3)  { left: 19%; animation-duration: 13s; animation-delay: -5s; }
+    .friday-snow span:nth-child(4)  { left: 27%; animation-duration: 18s; animation-delay: -12s; font-size: 16px; }
+    .friday-snow span:nth-child(5)  { left: 35%; animation-duration: 11s; animation-delay: -7s; }
+    .friday-snow span:nth-child(6)  { left: 43%; animation-duration: 15s; animation-delay: -2s; font-size: 13px; }
+    .friday-snow span:nth-child(7)  { left: 51%; animation-duration: 17s; animation-delay: -11s; }
+    .friday-snow span:nth-child(8)  { left: 59%; animation-duration: 12s; animation-delay: -6s; font-size: 15px; }
+    .friday-snow span:nth-child(9)  { left: 67%; animation-duration: 19s; animation-delay: -14s; }
+    .friday-snow span:nth-child(10) { left: 75%; animation-duration: 14s; animation-delay: -4s; font-size: 14px; }
+    .friday-snow span:nth-child(11) { left: 83%; animation-duration: 16s; animation-delay: -10s; }
+    .friday-snow span:nth-child(12) { left: 91%; animation-duration: 13s; animation-delay: -8s; font-size: 16px; }
+
+    @media (prefers-reduced-motion: reduce) {
+        .friday-snow {
+            display: none;
+        }
+    }
+    </style>
+
+    <div class="friday-snow" aria-hidden="true">
+        <span>❄</span><span>❅</span><span>❄</span><span>❅</span>
+        <span>❄</span><span>❅</span><span>❄</span><span>❅</span>
+        <span>❄</span><span>❅</span><span>❄</span><span>❅</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+# ============================================================
 # API KEY
 # ============================================================
 
