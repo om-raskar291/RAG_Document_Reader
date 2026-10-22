@@ -40,16 +40,20 @@ st.set_page_config(
 st.markdown(
     """
     <style>
+    /* Keep the normal Streamlit layout untouched. The snow is a
+       transparent overlay, so the app remains visible and clickable. */
     .stApp {
-        position: relative;
+        background: #F7F8FA;
     }
 
     .friday-snow {
         position: fixed;
         inset: 0;
+        width: 100vw;
+        height: 100vh;
         pointer-events: none;
         overflow: hidden;
-        z-index: 999;
+        z-index: 9999;
     }
 
     .friday-snow span {
