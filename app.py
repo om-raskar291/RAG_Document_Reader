@@ -50,7 +50,7 @@ st.markdown(
         position: fixed;
         inset: 0;
         width: 90vw;
-        height: 9vh;
+        height: 90vh;
         pointer-events: none;
         overflow: hidden;
         z-index: 9999;
@@ -58,7 +58,6 @@ st.markdown(
 
     .friday-snow span {
         position: absolute;
-        top: -5px;
         color: #B9DDF7;
         opacity: 1.55;
         font-size: 70px;
