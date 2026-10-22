@@ -58,10 +58,10 @@ st.markdown(
 
     .friday-snow span {
         position: absolute;
-        top: -35px;
+        top: -5px;
         color: #B9DDF7;
-        opacity: 0.55;
-        font-size: 18px;
+        opacity: 1.55;
+        font-size: 180px;
         line-height: 1;
         user-select: none;
         animation-name: rag-snow-fall;
