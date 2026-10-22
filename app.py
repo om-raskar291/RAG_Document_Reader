@@ -58,6 +58,7 @@ st.markdown(
 
     .friday-snow span {
         position: absolute;
+        top: -5px;
         color: #B9DDF7;
         opacity: 1.55;
         font-size: 70px;
